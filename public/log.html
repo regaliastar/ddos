@@ -21,6 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/log.css">
 
     <script src="assets/js/chart-master/Chart.js"></script>
     <script src="https://cdn.bootcss.com/echarts/3.5.2/echarts.common.js"></script>
@@ -39,32 +40,83 @@
   })
   </script>
   <style media="screen">
-  .mod-console-hd {
-      line-height: 54px;
-      position: relative;
-      margin-left: 25px;
-      margin-bottom: 20px;
-      margin-top: 20px;
-  }
-  .mod-console-hd h3 {
-      font-size: 14px;
-      font-weight: 700;
-  }
-  .mod-console-hd .more-info {
-    font-size: 12px;
-    height: 100%;
+      .security-right{
+          background: #fff none repeat scroll 0 0;
+          border-left: 1px solid #ddd;
+          box-sizing: border-box;
+          float: left;
+          min-height: 536px;
+          padding-bottom: 100px;
+          position: relative;
+          width: 1030px;
+      }
+      .sr-t {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    padding-left: 30px;
+}
+.tit-b {
+    background-color: #00a1d6;
+    border-radius: 4px;
+    height: 16px;
+    margin-top: 16px;
+    width: 4px;
+}
+.acc-sec {
+    color: #00a1d6;
+    cursor: default;
+    font-size: 14px;
+    margin: 15px 0 0 5px;
+}
+.sr-b {
+    padding: 20px 20px 0;
+}
+.sb-line {
+    border-top: 1px solid #ddd;
+    margin-top: 45px;
+    width: 100%;
+}
+.sb-save {
+    background: #00a0d8 none repeat scroll 0 0;
+    border-radius: 3px;
+    bottom: 35px;
+    color: #fff;
+    height: 35px;
+    left: 375px;
+    letter-spacing: 0.5em;
+    line-height: 35px;
     position: absolute;
-    left: 200px;
-    top: 0px;
-  }
+    text-align: center;
+    width: 110px;
+}
+.e{
+    margin-top: 0 !important;
+    top:0 !important;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 1px;
+}
+
+.fileUpload input.upload {  position: absolute;
+    top: 0;
+    right: 0;
+
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
   </style>
-  
+
   <body>
 
   <section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
       <!--header start-->
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
@@ -85,10 +137,6 @@
             </div>
         </header>
       <!--header end-->
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">
@@ -142,43 +190,79 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <div class="mod-console-hd">
-                  <h3>过滤模块开启状态</h3>
-                  <div class="box">
-                    <div class="slider" id="slider"></div>
-                    <span class="m">开</span>
-                    <span class="w">关</span>
-                  </div>
-              </div>
-              <hr>
-              </hr>
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="largeFlowSource" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
+              <form onsubmit="return false;">
+              	<div class="security-right">
+              		<div class="sr-t">
+              			<span class="tit-b"></span>
+              			<span class="acc-sec">我的信息</span>
+              		</div>
+              		<div class="sr-b">
+              			<ul>
+              				<li>
+              					<div class="sb-info">
+              						<p class="sbi-l" id="username">账号：</p>
+              						<div class="sbi-m">
+              							<span>
+              								<input class="user-id" name="uname" value="" type="text">
+              							</span>
+              						</div>
+              						<p class="sbi-r ">注：更改登录账号</p>
+              					</div>
+              				</li>
+                            <li>
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="password">密码：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <input class="user-id" name="uname" value="" type="password">
+                                        </span>
+                                    </div>
+                                    <p class="sbi-r ">注：密码长度必须6位及以上</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="email">邮箱：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <input class="user-id" name="uname" value="" type="email">
+                                        </span>
+                                    </div>
+                                    <p class="sbi-r ">注：更改提醒邮箱</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">检测文件上传：</p>
+                                    <div class="sbi-m">
+                                        <span>
 
-              </div>
+                                            <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+                                            <div class="fileUpload btn btn-primary">
+                                                <span>Upload</span>
+                                                <input id="uploadBtn" type="file" class="upload" />
+                                            </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="protocol" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-              </div>
+                                        </span>
+                                    </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12 center">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="target" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-              </div>
+                                </div>
+                            </li>
+
+              				<li>
+              					<div class="sb-info">
+
+              					</div>
+              				</li>
+
+              			</ul>
+              		</div>
+              		<div class="sb-line"></div>
+              		<input id="save" class="sb-save" value="保存" style="position: absolute;bottom:80px;display: block;" type="button">
+              		<span id="successMsg" class="sb-save" style="display: none;">保存成功！</span>
+              	</div>
+
+              </form>
 
           </section>
       </section>
@@ -194,6 +278,7 @@
       </footer>
       <!--footer end-->
   </section>
+
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="js/check.js"></script>
@@ -254,6 +339,7 @@
         }
     </script>
 
-
   </body>
+<script type="text/javascript" src="js/log.js"></script>
+
 </html>
