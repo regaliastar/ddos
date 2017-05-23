@@ -34,9 +34,50 @@
   </head>
   <script type="text/javascript">
   $(document).ready(function(){
+      $('.thispart').addClass('active');
+      $('#check').addClass('active');
+      $('#slider').on('click',function(){
 
+          $(this).css("left") == '100px' ? $(this).css("left","0") : $(this).css("left","100px");
+      });
   })
   </script>
+  <style media="screen">
+  .mod-console-hd {
+      line-height: 54px;
+      position: relative;
+      margin-left: 25px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+  .mod-console-hd h3 {
+      font-size: 14px;
+      font-weight: 700;
+  }
+  .mod-console-hd .more-info {
+    font-size: 12px;
+    height: 100%;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+  }
+  </style>
+  <style>
+    .box{
+        background: #629FCE;
+        width: 200px;
+        height: 30px;
+        border-radius: 15px;
+        position: relatives;
+        /*left: 500px;*/
+        right: 10px;
+        top: 0px
+    }
+    .slider{background: #F6F6F6;width: 100px;height: 30px;border-radius: 15px;position: absolute;transition: left 0.5s; -moz-transition: left 0.5s; -webkit-transition: left 0.5s;left:0}
+    .m{float: left;margin-left: 50px;height: 30px;line-height: 30px;color: #F6F6F6;font-weight: 800;}
+    .w{float: right;margin-right: 50px;height: 30px;line-height: 30px;color: #F6F6F6;font-weight: 800;}
+</style>
+
   <body>
 
   <section id="container" >
@@ -49,7 +90,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>DASHGUM FREE</b></a>
+            <a href="index.html" class="logo"><b>Manager</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -74,7 +115,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
 
               	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <h5 class="centered">Manager</h5>
 
                   <li class="mt">
                       <a class="" href="index.html">
@@ -84,67 +125,28 @@
                   </li>
 
                   <li class="sub-menu">
-                      <a id="sec" href="javascript:;" >
+                      <a href="javascript:;" class="thispart">
                           <i class="fa fa-desktop"></i>
                           <span>外源DDOS</span>
                       </a>
                       <ul class="sub">
                           <li id="check"><a  href="check.html">检测</a></li>
-                          <li><a  href="buttons.html">过滤</a></li>
+                          <li id="filter"><a  href="filter.html">过滤</a></li>
                           <!-- <li><a  href="panels.html">Panels</a></li> -->
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="innerDdos.html" >
                           <i class="fa fa-cogs"></i>
                           <span>內源DDOS</span>
                       </a>
-                      <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
-                      </ul>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="log.html" >
                           <i class="fa fa-book"></i>
                           <span>管理日志</span>
                       </a>
-                      <ul class="sub">
-                          <li><a  href="blank.html">Blank Page</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                          <li><a  href="lock_screen.html">Lock Screen</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Forms</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="form_component.html">Form Components</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Data Tables</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="basic_table.html">Basic Table</a></li>
-                          <li><a  href="responsive_table.html">Responsive Table</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Charts</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="morris.html">Morris</a></li>
-                          <li><a  href="chartjs.html">Chartjs</a></li>
-                      </ul>
                   </li>
 
               </ul>
@@ -159,32 +161,51 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+              <div class="mod-console-hd">
+                  <h3>过滤模块开启状态</h3>
+                  <div class="box">
+                    <div class="slider" id="slider"></div>
+                    <span class="m">开</span>
+                    <span class="w">关</span>
+                  </div>
+              </div>
+              <hr>
+              </hr>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                  <!-- REAL TIME ENTERING FLOW-->
+                  <div class="showback">
+                      <div class="panel-body text-center">
+                          <div id="largeFlowSource" style="width: 490px;height:305px;"></div>
+                      </div>
+                  </div>
 
-            					<div class="col-lg-6 col-md-6 col-sm-12">
-            						<!-- REAL TIME ENTERING FLOW-->
-            						<div class="showback">
-            							<div class="panel-body text-center">
-            								<div id="largeFlowSource" style="width: 490px;height:305px;"></div>
-            							</div>
-            						</div>
+              </div>
 
-            					</div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                  <!-- REAL TIME ENTERING FLOW-->
+                  <div class="showback">
+                      <div class="panel-body text-center">
+                          <div id="protocol" style="width: 490px;height:305px;"></div>
+                      </div>
+                  </div>
+              </div>
 
-                      <div class="col-lg-6 col-md-6 col-sm-12">
-                        <!-- REAL TIME ENTERING FLOW-->
-                          <div class="showback">
-                            <div class="panel-body text-center">
-                              <div id="protocol" style="width: 490px;height:305px;"></div>
-                            </div>
-                          </div>
-                        </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 center">
+                  <!-- REAL TIME ENTERING FLOW-->
+                  <div class="showback">
+                      <div class="panel-body text-center">
+                          <div id="target" style="width: 490px;height:305px;"></div>
+                      </div>
+                  </div>
+              </div>
+
           </section>
       </section>
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is
+              2017 - ddos-project
               <a href="index.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -194,7 +215,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="assets/js/check.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
 
 
     <script src="assets/js/jquery.js"></script>
