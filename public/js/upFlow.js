@@ -1,109 +1,76 @@
-"use strict";
+(function(){
+	// 基于准备好的dom，初始化echarts实例
+	var myChart = echarts.init(document.getElementById('realTimeUpFlow'));
+	var base = +new Date(2014, 9, 3);
+	var oneDay = 24 * 3600 * 1000;
+	var date = [];
 
-var passengerFlowData = [];
-/*
- * 实时向服务器请求数据
- * passengerFlowData : [] --> 用于存取数据 [['1997/07/06', 626],['1992/01/06',677]]
- */
+	var data = [Math.random() * 150];
+	var now = new Date(base);
+	var pn;
 
+	function addData(shift) {
+		//pn =[now.getMonth() + 1, now.getDate()].join(':');
+		var d = new Date();
+		pn = [d.getHours(),d.getMinutes(),d.getSeconds()].join(':');
+		now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
 
+		date.push(pn);
+		//date.push(now);
+		data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
 
-/*
- * 图表1
- */
-// 基于准备好的dom，初始化echarts实例
-
-
-/****************************************
- *
- *
- *
- *****************************************/
-/*
- * 图表2
- */
-// 基于准备好的dom，初始化echarts实例
-var myChart2 = echarts.init(document.getElementById('realTimeUpFlow'));
-
-// 指定图表的配置项和数据
-function randomData2() {
-	//now = new Date(+now + oneDay);
-	var mydate = new Date();
-	value = value + Math.random() * 21 - 10;
-	var result = {
-		name: 'name',
-		value: [
-            [mydate.getHours(), mydate.getMinutes(), mydate.getSeconds()].join(':'),
-            Math.round(value)
-        ]
-	};
-	//console.log(result);
-	return result;
-}
-
-var data = [];
-//var now = +new Date(2015, 5, 22);
-//mydate
-//var oneDay = 24 * 3600 * 1000;
-var value = Math.random() * 1000;
-for (var i = 0; i < 100; i++) {
-	data.push(randomData2());
-}
-
-var option = {
-	title: {
-		text: '实时上行流量动态折线图'
-	},
-	tooltip: {
-		trigger: 'axis',
-		formatter: function (params) {
-			//params = params[0];
-			var date = new Date(params[0].name);
-			return date.getDate() + '/' + (date.getMonth() + 1) + '/' + ' : ' + params[0].value[1];
-		},
-		axisPointer: {
-			animation: false
+		if (shift) {
+			date.shift();
+			data.shift();
 		}
-	},
-	xAxis: {
-		type: 'time',
-		splitLine: {
-			show: false
-		}
-	},
-	yAxis: {
-		type: 'value',
-		boundaryGap: [0, '100%'],
-		splitLine: {
-			show: true
-		}
-	},
-	series: [{
-		name: '实时上行流量数据',
-		type: 'line',
-		showSymbol: false,
-		hoverAnimation: false,
-		data: data,
-		lineStyle: {
-			normal: {
-				color: '#ED801C'
-			}
-		},
-    }]
-};
 
-setInterval(function () {
-	for (var i = 0; i < 5; i++) {
-		data.shift();
-		data.push(randomData2());
+		now = new Date(+new Date(now) + oneDay);
 	}
 
-	myChart2.setOption({
-		series: [{
-			data: data
-		}]
-	});
-}, 1000);
+	for (var i = 1; i < 30; i++) {
+		addData();
+	}
 
-// 使用刚指定的配置项和数据显示图表。
-myChart2.setOption(option);
+	option = {
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: date
+		},
+		yAxis: {
+			boundaryGap: [0, '50%'],
+			type: 'value'
+		},
+		series: [
+			{
+				name:'成交',
+				type:'line',
+				smooth:true,
+				symbol: 'none',
+				stack: 'a',
+				areaStyle: {
+					normal: {}
+				},
+				data: data
+			}
+		]
+	};
+
+	setInterval(function () {
+		addData(true);
+		myChart.setOption({
+			xAxis: {
+				data: date
+			},
+			series: [{
+				name:'成交',
+				data: data
+			}]
+		});
+	}, 500);
+
+
+	// 使用刚指定的配置项和数据显示图表。
+	myChart.setOption(option);
+
+})()
