@@ -25,11 +25,11 @@ $(document).ready(function(){
                       radius: '70%',
                       roseType: 'angle',
                       data:[
-                          {value:'45', name:'视频广告'},
-                          {value:'80', name:'联盟广告'},
-                          {value:'75', name:'邮件营销'},
-                          {value:'68', name:'直接访问'},
-                          {value:'54', name:'搜索引擎'}
+                          {value:'45', name:'北京'},
+                          {value:'80', name:'上海'},
+                          {value:'75', name:'广州'},
+                          {value:'68', name:'成都'},
+                          {value:'54', name:'重庆'}
                       ]
                   }
               ]
@@ -60,12 +60,9 @@ $(document).ready(function(){
                       radius: '70%',
                       roseType: 'angle',
                       data:[
-                          {value:85, name:'HTTP'},
                           {value:190, name:'FTP'},
-                          {value:55, name:'ICMP'},
-                          {value:88, name:'IPv6'},
-                          {value:48, name:'MIME'},
-                          {value:20, name:'SMTP'}
+                          {value:55, name:'TCP'},
+                          {value:88, name:'UDP'}
                       ]
                   }
               ]
@@ -94,12 +91,8 @@ $(document).ready(function(){
                       radius: '70%',
                       roseType: 'angle',
                       data:[
-                          {value:85, name:'HTTP'},
-                          {value:190, name:'FTP'},
-                          {value:55, name:'ICMP'},
-                          {value:88, name:'IPv6'},
-                          {value:48, name:'MIME'},
-                          {value:20, name:'SMTP'}
+                          {value:85, name:'主机1'},
+                          {value:190, name:'主机2'}
                       ]
                   }
               ]

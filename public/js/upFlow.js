@@ -27,12 +27,13 @@ var myChart2 = echarts.init(document.getElementById('realTimeUpFlow'));
 
 // 指定图表的配置项和数据
 function randomData2() {
-	now = new Date(+now + oneDay);
+	//now = new Date(+now + oneDay);
+	var mydate = new Date();
 	value = value + Math.random() * 21 - 10;
 	var result = {
-		name: now.toString(),
+		name: 'name',
 		value: [
-            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+            [mydate.getHours(), mydate.getMinutes(), mydate.getSeconds()].join(':'),
             Math.round(value)
         ]
 	};
@@ -41,8 +42,9 @@ function randomData2() {
 }
 
 var data = [];
-var now = +new Date(2015, 5, 22);
-var oneDay = 24 * 3600 * 1000;
+//var now = +new Date(2015, 5, 22);
+//mydate
+//var oneDay = 24 * 3600 * 1000;
 var value = Math.random() * 1000;
 for (var i = 0; i < 100; i++) {
 	data.push(randomData2());
@@ -57,7 +59,7 @@ var option = {
 		formatter: function (params) {
 			//params = params[0];
 			var date = new Date(params[0].name);
-			return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params[0].value[1];
+			return date.getDate() + '/' + (date.getMonth() + 1) + '/' + ' : ' + params[0].value[1];
 		},
 		axisPointer: {
 			animation: false
