@@ -409,4 +409,4 @@ var option = {
 };
 
 var mapChart = echarts.init(document.getElementById('map'));
-mapChart.setOption(option);
+//mapChart.setOption(option);
