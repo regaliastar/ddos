@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
+    <link rel="stylesheet" href="css/check.css">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -32,6 +33,141 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('.thispart').addClass('active');
+      $('#threaten').addClass('active');
+      $('#slider').on('click',function(){
+
+          $(this).css("left") == '100px' ? $(this).css("left","0") : $(this).css("left","100px");
+      });
+      $('#slider2').on('click',function(){
+
+          $(this).css("left") == '100px' ? $(this).css("left","0") : $(this).css("left","100px");
+      });
+  })
+  </script>
+  <style media="screen">
+  .mod-console-hd {
+      line-height: 54px;
+      position: relative;
+      margin-left: 25px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+  }
+  .mod-console-hd h3 {
+      font-size: 14px;
+      font-weight: 700;
+  }
+  .mod-console-hd .more-info {
+    font-size: 12px;
+    height: 100%;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+  }
+  .dash-item-wrapper {
+    margin-bottom: 20px;
+}
+  .dash-item {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 4px;
+    padding: 20px 20px 0;
+}
+  .dash-item-hd {
+    color: #8f9297;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-left: 10px;
+}
+.products-tit .dash-item-hd {
+    display: inline-block;
+    vertical-align: middle;
+}
+.available-num {
+    color: #454a51;
+    line-height: 1.2;
+    padding: 17px 0 24px;
+}
+  </style>
+  <style>
+    .box{
+        margin-top: 10px;
+        background: #629FCE;
+        width: 200px;
+        height: 30px;
+        border-radius: 15px;
+        position: relatives;
+        /*left: 500px;*/
+        right: 10px;
+        top: 0px
+    }
+    .box2{
+        margin-top: 50px;
+        background: #629FCE;
+        width: 200px;
+        height: 30px;
+        border-radius: 15px;
+        position: relatives;
+        /*left: 500px;*/
+        margin-left: 130px;
+        right: 10px;
+        top: 0px
+    }
+    .slider2{
+
+        background: #F6F6F6;
+        width: 110px;
+        height: 30px;
+        border-radius: 15px;
+        position: absolute;
+        margin-left: 190px;
+        transition: left 0.5s;
+        -moz-transition: left 0.5s;
+        -webkit-transition: left 0.5s;
+        left:0
+    }
+    .slider{
+        background: #F6F6F6;
+        width: 100px;
+        height: 30px;
+        border-radius: 15px;
+        position: absolute;
+        transition: left 0.5s;
+        -moz-transition: left 0.5s;
+        -webkit-transition: left 0.5s;
+        left:0
+    }
+    .m{float: left;margin-left: 50px;height: 30px;line-height: 30px;color: #F6F6F6;font-weight: 800;}
+    .w{float: right;margin-right: 50px;height: 30px;line-height: 30px;color: #F6F6F6;font-weight: 800;}
+    .tc-15-btn {
+    background: #2277da none repeat scroll 0 0;
+    border: 1px solid #0064b6;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    height: 33px;
+    line-height: 33px;
+    min-width: 24px;
+    outline: 0 none;
+    padding: 0 20px;
+    text-align: center;
+}
+.tc-15-btn.pay {
+    background: #fa7821 none repeat scroll 0 0;
+    border-color: #e36d1f;
+
+}
+.available-ops{
+    margin-top: 80px;
+}
+.attack{
+    margin-left: 20px;
+}
+</style>
 
   <body>
 
@@ -72,21 +208,26 @@
               	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Manager</h5>
 
-                  <li class="mt">
-                      <a class="active" href="index.html">
-                          <i class="fa fa-dashboard"></i>
-                          <span>流量监控</span>
-                      </a>
+                  <li class="sub-menu">
+                          <a  href="javascript:;">
+                              <i class="fa fa-dashboard"></i>
+                              <span>总览</span>
+                          </a>
+                      <ul class="sub">
+                          <li id="thruput"><a  href="thruput.html">吞吐量</a></li>
+                          <li id="analysis"><a  href="analysis.html">流量分析</a></li>
+                          <!-- <li><a  href="panels.html">Panels</a></li> -->
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="javascript:;"  class="thispart">
                           <i class="fa fa-desktop"></i>
                           <span>外源DDOS</span>
                       </a>
                       <ul class="sub">
-                          <li id="check"><a  href="check.html">检测</a></li>
-                          <li id="filter"><a  href="filter.html">过滤</a></li>
+                          <li id="status"><a  href="status.html">当前状态</a></li>
+                          <li id="threaten"><a  href="threaten.html">威胁列表</a></li>
                           <!-- <li><a  href="panels.html">Panels</a></li> -->
                       </ul>
                   </li>
@@ -100,13 +241,7 @@
                   <li class="sub-menu">
                       <a href="log.html" >
                           <i class="fa fa-book"></i>
-                          <span>管理日志</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="map.html" >
-                          <i class="fa fa-book"></i>
-                          <span>地图</span>
+                          <span>控制台</span>
                       </a>
                   </li>
 
@@ -122,31 +257,31 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+              <table class="table">
+                  <caption></caption>
+                  <thead>
+                      <tr>
+                          <th>日期</th>
+                          <th>主机</th>
+                          <th>峰值流量</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>2017-5-3</td>
+                          <td>主机1</td>
+                          <td>1.3 GB/s</td>
+                      </tr>
+                      <tr>
+                          <td>2017-2-1</td>
+                          <td>主机2</td>
+                          <td>1.7 GB/s</td>
+                      </tr>
+                  </tbody>
+              </table>
 
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<!-- REAL TIME ENTERING FLOW-->
-						<div class="showback">
-							<h4><i class="fa fa-angle-right"></i> 上行流量</h4>
-							<div class="panel-body text-center">
-								<div id="realTimeUpFlow" style="width: 490px;height:305px;"></div>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<!-- REAL TIME ENTERING FLOW-->
-						<div class="showback">
-							<h4><i class="fa fa-angle-right"></i> 下行流量</h4>
-							<div class="panel-body text-center">
-								<div id="realTimeDownFlow" style="width: 490px;height:305px;"></div>
-							</div>
-						</div>
-
-					</div>
           </section>
       </section>
-
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">
@@ -161,8 +296,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/upFlow.js"></script>
-    <script type="text/javascript" src="js/downFlow.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
 
 
     <script src="assets/js/jquery.js"></script>
