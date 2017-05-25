@@ -106,9 +106,11 @@ setInterval(function () {
 // 使用刚指定的配置项和数据显示图表。
 xinxishangChart.setOption(option1);
 
+
 /**
  * 下面是map的代码
  */
+
 var geoCoordMap = {
     '上海': [121.4648,31.2891],
     '东莞': [113.8953,22.901],

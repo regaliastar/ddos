@@ -1,8 +1,10 @@
 $(document).ready(function(){
-    $('#save').on('click',function(){
-        $('#successMsg').slideDown();
-        setTimeout(function(){
-            $('#successMsg').slideUp();
-        },1000);
+    $('#userManager').on('click',function(){
+        $("#userManagerTable").is(":hidden") ? $("#userManagerTable").slideDown() : document.getElementById('userManagerTable').style.display='none';
+
+    })
+
+    $('#email').on('click',function(){
+        $("#userEmailTable").is(":hidden") ? $("#userEmailTable").slideDown() : document.getElementById('userEmailTable').style.display='none';
     })
 })

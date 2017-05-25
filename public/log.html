@@ -97,7 +97,7 @@
 .fileUpload {
     position: relative;
     overflow: hidden;
-    margin: 1px;
+    margin: 5px;
 }
 
 .fileUpload input.upload {  position: absolute;
@@ -205,40 +205,28 @@
               			<ul>
               				<li>
               					<div class="sb-info">
-              						<p class="sbi-l" id="username">账号：</p>
-              						<div class="sbi-m">
+              						<p class="sbi-l" id="username">当前用户</p>
+                                    <div class="sbi-m">
               							<span>
-              								<input class="user-id" name="uname" value="" type="text">
+              								<input class="user-id" name="uname" value="小王" type="text">
               							</span>
               						</div>
-              						<p class="sbi-r ">注：更改登录账号</p>
+              						<div class="sbi-m">
+              							<p></p>
+              						</div>
               					</div>
               				</li>
                             <li>
-                                <div class="sb-info">
-                                    <p class="sbi-l" id="password">密码：</p>
-                                    <div class="sbi-m">
-                                        <span>
-                                            <input class="user-id" name="uname" value="" type="password">
-                                        </span>
-                                    </div>
-                                    <p class="sbi-r ">注：密码长度必须6位及以上</p>
-                                </div>
-                            </li>
+              					<div class="sb-info">
+              						<a class="sbi-l" href="userProfit.html">权限管理</a>
+              						<a class="sbi-l" href="login.html">切换用户</a>
+              					</div>
+              				</li>
+
+
                             <li>
                                 <div class="sb-info">
-                                    <p class="sbi-l" id="email">邮箱：</p>
-                                    <div class="sbi-m">
-                                        <span>
-                                            <input class="user-id" name="uname" value="" type="email">
-                                        </span>
-                                    </div>
-                                    <p class="sbi-r ">注：更改提醒邮箱</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sb-info">
-                                    <p class="sbi-l" id="">检测文件上传：</p>
+                                    <p class="sbi-l" id="">上传训练文件：</p>
                                     <div class="sbi-m">
                                         <span>
 
@@ -250,10 +238,77 @@
 
                                         </span>
                                     </div>
+                                </div>
+
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">恢复训练文件：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <a class="button button-royal button-pill button-giant">Recover</a>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="sb-info">
+                                    <p class="sbi-l" id="">获取训练文件：</p>
+                                    <div class="sbi-m">
+                                        <span>
+                                            <a class="button button-royal button-pill button-giant">Get</a>
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="sb-info">
+                                    <a class="sbi-l" id="email">告警邮箱设置</a>
 
                                 </div>
+                                <table id="userEmailTable" class="table" style="display:none">
+                                    <caption></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>当前邮箱列表</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>David@163.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mrwang@163.com</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </li>
+                            <li>
+                                <div class="sb-info">
+                                    <a class="sbi-l" id="userManager">用户管理</a>
+                                </div>
+                                <table id="userManagerTable" class="table" style="display:none">
+                                    <caption></caption>
+                                    <thead>
+                                        <tr>
+                                            <th>现有用户</th>
+                                            <th>最后登录</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>David</td>
+                                            <td>2017-4-28</td>
 
+                                        </tr>
+                                        <tr>
+                                            <td>Mr.wang</td>
+                                            <td>2017-5-5</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
               				<li>
               					<div class="sb-info">
 
@@ -263,8 +318,7 @@
               			</ul>
               		</div>
               		<div class="sb-line"></div>
-              		<input id="save" class="sb-save" value="保存" style="position: absolute;bottom:80px;display: block;" type="button">
-              		<span id="successMsg" class="sb-save" style="display: none;">保存成功！</span>
+
               	</div>
 
               </form>
