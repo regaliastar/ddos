@@ -32,7 +32,7 @@
 	}
 
 	option = {
-		
+
 		xAxis: {
 			type: 'category',
 			boundaryGap: false,
