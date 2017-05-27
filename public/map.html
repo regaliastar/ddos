@@ -26,6 +26,9 @@
     <script src="assets/js/chart-master/Chart.js"></script>
     <script src="https://cdn.bootcss.com/echarts/3.5.2/echarts.common.js"></script>
 
+    <!--调出中国地图 -->
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/china.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,7 +39,7 @@
   <script type="text/javascript">
   $(document).ready(function(){
       $('.thispart').addClass('active');
-      $('#analysis').addClass('active');
+      $('#map').addClass('active');
       $('#slider').on('click',function(){
 
           $(this).css("left") == '100px' ? $(this).css("left","0") : $(this).css("left","100px");
@@ -209,20 +212,19 @@
               	  <h5 class="centered">Manager</h5>
 
                   <li class="sub-menu">
-                          <a  href="javascript:;" class="thispart">
+                          <a  href="javascript:;" >
                               <i class="fa fa-dashboard"></i>
                               <span>总览</span>
                           </a>
                       <ul class="sub">
                           <li id="thruput"><a  href="thruput.html">吞吐量</a></li>
                           <li id="analysis"><a  href="analysis.html">流量分析</a></li>
-
                           <!-- <li><a  href="panels.html">Panels</a></li> -->
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="javascript:;" class="thispart">
                           <i class="fa fa-desktop"></i>
                           <span>外源DDOS</span>
                       </a>
@@ -258,67 +260,48 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
+          <section class="wrapper" >
               <div class="mod-console-hd">
-                  <h3>过滤模块开启状态</h3>
-                  <div class="box">
-                    <div class="slider" id="slider"></div>
-                    <span class="m">开</span>
-                    <span class="w">关</span>
-                  </div>
+                  <h3 style="float:left">状态</h3>
+                  <h3 style="margin-left:50px;color:red">正受攻击</h3>
               </div>
               <hr>
               </hr>
+
+
+              <div class="col-lg-6 col-md-6 col-sm-12" style="margin-left:200px">
+                  <div id="rightmap" style="width: 800px;height:500px;"></div>
+
+              </div>
+              <!--
               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="largeFlowSource" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
+                  <div id="leftmap" style="width: 600px;height:385px;"></div>
 
               </div>
+          -->
 
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="other" style="width: 490px;height:305px;">
-                              <div class="dash-item-wrapper">
-                                  <div class="dash-item">
-
-                                      <p class="dash-item-hd" style="float:left;margin-left:20px"> 未处理消息 </p>
-                                      <p style="margin-left:20px; color:red"> 2</p>
-
-                                      <div class="available-ops" style="float:left;margin-left:20px;margin-bottom:0">
-                                          <a class="tc-15-btn pay" href="status.html" data-event="nav" data-hot="newhp.finance.recharge" data-auth="account" style="">查看当前流量熵指标</a>
-                                          <a class="attack" href="attack.html" data-event="nav" data-hot="header.user.fee">查看攻击状况</a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-6 col-md-6 col-sm-12 center">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="target" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="protocol" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-              </div>
-
-
+              <table class="table" style="margin-top:600px">
+                  <caption>当前状态信息</caption>
+                  <thead>
+                      <tr>
+                          <th>活跃攻击IP</th>
+                          <th>攻击主机</th>
+                          <th>攻击协议</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>192.168.0.1</td>
+                          <td>主机1 192.168.4.5 -93%</td>
+                          <td>TCP -94.7%</td>
+                      </tr>
+                      <tr>
+                          <td>196.142.6.6</td>
+                          <td>主机2 196.188.7.6 -7%</td>
+                          <td>ICMP -5.3%</td>
+                      </tr>
+                  </tbody>
+              </table>
 
           </section>
       </section>
@@ -336,8 +319,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/check.js"></script>
-
+    <script type="text/javascript" src="js/map.js"></script>
 
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-1.8.3.min.js"></script>
