@@ -38,26 +38,31 @@
 
   })
   </script>
-  <style media="screen">
-  .mod-console-hd {
-      line-height: 54px;
-      position: relative;
-      margin-left: 25px;
-      margin-bottom: 20px;
-      margin-top: 20px;
+  <style>
+  .left{
+      float: left !important;
+      border: 1px;
+      width: 550px;
+      display: inline-block;
   }
-  .mod-console-hd h3 {
-      font-size: 14px;
-      font-weight: 700;
+  .right{
+      float: right !important;
+      border: 1px;
+      width: 550px;
+      display: inline-block;
   }
-  .mod-console-hd .more-info {
-    font-size: 12px;
-    height: 100%;
-    position: absolute;
-    left: 200px;
-    top: 0px;
+  .center{
+      float: left;
+      display: inline-block;
+      border: 1px;
+      width: 100px;
+      margin-top: 80px;
+      margin-left: 40px;
   }
   </style>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/arrow_button.css" rel="stylesheet" type="text/css" />
 
   <body>
 
@@ -147,37 +152,66 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              
-              <hr>
-              </hr>
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="largeFlowSource" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-
+              <div class="left">
+                  <table id="wrongTable" class="table " style="margin-top:20px">
+                      <caption>异常名单</caption>
+                      <thead>
+                          <tr>
+                              <th>IP</th>
+                              <th>速率</th>
+                              <th>异常原因</th>
+                          </tr>
+                      </thead>
+                      <tbody id="twrongTable">
+                          <tr class="wt1">
+                              <td id="wt1">192.168.22.1</td>
+                              <td id="wt1">23 MB/s</td>
+                              <td id="wt1">原因1</td>
+                          </tr>
+                          <tr class="wt2">
+                              <td id="wt2">196.156.2.1</td>
+                              <td id="wt2">34 MB/s</td>
+                              <td id="wt2">原因2</td>
+                          </tr>
+                          <tr class="wt3">
+                              <td id="wt3">196.186.25.1</td>
+                              <td id="wt3">24 MB/s</td>
+                              <td id="wt3">原因3</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="center">
+                  <button id="removeBlack" type="button" class="btn btn-primary btn-arrow-left">移除黑名单</button>
+                  <button id="addBlack" type="button" style="margin-top:20px" class="btn btn-success btn-arrow-right">加入黑名单</button>
+              </div>
+              <div class="right">
+                  <table id="blackTable" class="table " style="margin-top:20px">
+                      <caption>黑名单</caption>
+                      <thead>
+                          <tr>
+                              <th>IP</th>
+                              <th>时间</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tblackTable">
+                          <tr class="bt1">
+                              <td id="bt1">196.155.22.3</td>
+                              <td id="bt1">2017-5-3</td>
+                          </tr>
+                          <tr class="bt2">
+                              <td id="bt2">112.20.2.3</td>
+                              <td id="bt2">2017-5-5</td>
+                          </tr>
+                      </tbody>
+                  </table>
               </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="protocol" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
-              </div>
+              <div style="width:250px">
 
-              <div class="col-lg-6 col-md-6 col-sm-12 center">
-                  <!-- REAL TIME ENTERING FLOW-->
-                  <div class="showback">
-                      <div class="panel-body text-center">
-                          <div id="target" style="width: 490px;height:305px;"></div>
-                      </div>
-                  </div>
+                  <button style="float:left" class="btn btn-success" ><span>白名单列表 </span></button>
+                  <button style="float:right" class="btn btn-primary" ><span>添加到白名单 </span></button>
               </div>
-
           </section>
       </section>
       <!--main content end-->
@@ -194,7 +228,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-
+    <script type="text/javascript" src="js/innerDdos.js"></script>
 
 
     <script src="assets/js/jquery.js"></script>

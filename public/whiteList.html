@@ -162,49 +162,17 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <div class="left">
-                  <table id="wrongTable" class="table " style="margin-top:20px">
-                      <caption>异常名单</caption>
-                      <thead>
-                          <tr>
-                              <th>IP</th>
-                              <th>速率</th>
-                              <th>异常原因</th>
-                          </tr>
-                      </thead>
-                      <tbody id="twrongTable">
-                          <tr class="wt1">
-                              <td id="wt1">192.168.22.1</td>
-                              <td id="wt1">23 MB/s</td>
-                              <td id="wt1">原因1</td>
-                          </tr>
-                          <tr class="wt2">
-                              <td id="wt2">196.156.2.1</td>
-                              <td id="wt2">34 MB/s</td>
-                              <td id="wt2">原因2</td>
-                          </tr>
-                          <tr class="wt3">
-                              <td id="wt3">196.186.25.1</td>
-                              <td id="wt3">24 MB/s</td>
-                              <td id="wt3">原因3</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-              <div class="center">
-                  <button id="removeBlack" type="button" class="btn btn-primary btn-arrow-left">移除黑名单</button>
-                  <button id="addBlack" type="button" style="margin-top:20px" class="btn btn-success btn-arrow-right">加入黑名单</button>
-              </div>
-              <div class="right">
-                  <table id="blackTable" class="table " style="margin-top:20px">
-                      <caption>黑名单</caption>
+
+              <div class="">
+                  <table id="whiteTable" class="table " style="margin-top:20px">
+                      <caption>白名单</caption>
                       <thead>
                           <tr>
                               <th>IP</th>
                               <th>时间</th>
                           </tr>
                       </thead>
-                      <tbody id="tblackTable">
+                      <tbody id="twhiteTable">
                           <tr class="bt1">
                               <td id="bt1">196.155.22.3</td>
                               <td id="bt1">2017-5-3</td>
@@ -218,9 +186,7 @@
               </div>
 
               <div style="width:250px">
-
-                  <button style="float:left" class="btn btn-success" onclick="location.href ='whiteList.html'"><span>白名单列表 </span></button>
-                  <button style="float:right" class="btn btn-primary" ><span>添加到白名单 </span></button>
+                  <button id="removeWhite" style="float:left" class="btn btn-success" ><span>移除白名单 </span></button>
               </div>
           </section>
       </section>
@@ -238,8 +204,7 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/threaten.js"></script>
-
+    <script type="text/javascript" src="js/whiteList.js"></script>
 
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/jquery-1.8.3.min.js"></script>
